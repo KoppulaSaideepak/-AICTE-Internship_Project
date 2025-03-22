@@ -1,1 +1,10 @@
-
+c = ['b' , 'g' , 'r' , 'c' , 'm' , 'y' , 'k' , 'w' , 'b']
+fig1 , axes = plt.subplots(len(exercise_df.columns) , 1 , figsize = (10 , 20))
+plt.subplots_adjust(wspace = 0.3 , hspace = 0.7)
+axes = axes.flatten()             #for using axes indeces with one dimention array instead of two dimension
+for i , column in zip(range(len(exercise_df.columns)) , exercise_df.columns):
+  try:
+    sns.boxplot(data = exercise_df , x = column , color = c[i] , ax = axes[i])
+  except:
+    fig1.delaxes(axes[i])
+    continue
